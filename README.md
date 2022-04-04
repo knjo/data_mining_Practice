@@ -9,7 +9,9 @@
 - 透過KS-test觀察 train、test，可以發現兩份資料基本上`屬於同個分布`
 - 正規化後透過基本的降維嘗試(PCA、actorAnalysis)觀察分布，可以發現沒有明顯區隔
  <img src="./PIC/PCA.PNG" width="400px" />   
+ 
 ---
+
 ## 預處理 : 
 1. 透過模型直接初篩 - 怎麼起步
 - 因資料沒有缺失值，且從`.describe()`看可以發現，大多training的特徵值像是高斯分布的亂數資料
@@ -24,7 +26,9 @@
 - 將上面產生的feature做cross，產生出帶交集訊息的特徵
 - 因 binary的資料很多會有訓練上的overfitting、curse of dimensionality，所以做 feature embedding
  <img src="./PIC/embedding.PNG" width="400px" /> 
+ 
 ---
+
 ## 模型 
 訓練數據最終為 RF篩選重要度>0.03的特徵，加上上述生產出來的embedding資料
 1. 選用考量 - 為什麼用RF
@@ -41,6 +45,7 @@
 - accyracy 55.9 % : 將特徵工程做出的 embedding 加入
 
 ---
+
 ## 訓練結果、驗證結果
 1. RF classifier
 - 透過 KFold 訓練同時驗證結果，可以發現整份資料本身並沒有因在不同段，有大的差異性
